@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Lista de Condidados</title>
+  </head>
+<body>
+  <div class="container-fluid">
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-header">
+        Lista de Convidados
+      </div>
+
+      <div style="width: 70%; padding: 10px 0px 10px 10px;">
+      <form method="post">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nome" name="nome">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Quantidade de Acompanhantes" name="quantidadeAcompanhantes">
+          </div>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Acompanhantes</th>
+          <th scope="col">Deletar Registro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="convidado : ${convidados}" >
+          <th th:text="${convidado.nome}" scope="row"></th>
+          <td th:text="${convidado.quantidadeAcompanhantes}" ></td>
+          <td><a th:href="@{/delete/{id}(id=${convidado.id})}">Deletar</a></td>
+        </tr>
+
+
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+   
+</body>
+</html>
