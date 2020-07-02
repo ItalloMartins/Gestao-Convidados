@@ -17,6 +17,11 @@ public class ConvidadosController {
 	@Autowired
 	private Convidados convidadosRepo;
 	
+	@RequestMapping("/")
+	public String index() {
+		return "redirect:/convidados";
+	}
+	
 	@RequestMapping("/convidados")
 	public ModelAndView listar() {
 		ModelAndView modelAndView = new ModelAndView("ListaConvidados");
